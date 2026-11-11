@@ -11,9 +11,8 @@
 
 ```
 nav-site/
-├── index.html              首页：搜索、精选 6 个、分类入口、最新收录
+├── index.html              首页：搜索 + 三组常用入口（每组 5 个）
 ├── directory.html          全部网址：26 个站点，按分类分组 + 搜索
-├── about.html              关于：为什么做、收录标准、技术细节、更新日志
 ├── submit.html             推荐网址：表单校验后调起邮件客户端
 ├── 404.html                找不到页面
 ├── manifest.webmanifest    Web App Manifest
