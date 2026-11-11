@@ -1771,3 +1771,10 @@ main {
 .link-card:focus-visible {
   animation: none;
 }
+/* 6i. No shadow, no halo at all ----------------------------------------- */
+.link-card,
+[data-theme="dark"] .link-card {
+  box-shadow: none;
+  filter: none;
+  text-shadow: none;
+}
