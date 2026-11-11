@@ -15,7 +15,7 @@
 
 param(
   [string]$SiteName = "拾页导航",
-  [string]$Tagline  = "把每天要用的网站，收进一页里。",
+  [string]$Tagline  = "常用网站，一页打开。",
   [string]$Kicker   = "SHIYE NAV  /  2026",
   [string]$Cats     = "搜索引擎  ·  影视视频  ·  AI 工具",
   [string]$SiteUrl  = "swdlawa.github.io/nav"
