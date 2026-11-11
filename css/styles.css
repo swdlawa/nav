@@ -1778,3 +1778,9 @@ main {
   filter: none;
   text-shadow: none;
 }
+/* 9b. Single-column submit form ----------------------------------------- */
+.submit-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 620px;
+  margin-inline: auto;
+}
