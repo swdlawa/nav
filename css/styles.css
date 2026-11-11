@@ -1785,3 +1785,62 @@ main {
   font-weight: 600;
   letter-spacing: 0.01em;
 }
+/* 6g. Crisp gradient border — no mask, no blur, no glow --------------- */
+.link-card {
+  border: 2px solid transparent;
+  background-color: #000;
+  background-image:
+    linear-gradient(#000, #000),
+    conic-gradient(
+      from var(--nav-angle),
+      #ff6b1a,
+      #ffb347,
+      #3b82f6,
+      #22d3ee,
+      #ff6b1a
+    );
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  animation: nav-spin 9s linear infinite;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 22px -20px rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="dark"] .link-card {
+  background-color: #000;
+  background-image:
+    radial-gradient(120% 140% at 50% 0%, #1a1e25 0%, #0e1013 55%, #08090b 100%),
+    conic-gradient(
+      from var(--nav-angle),
+      #ff6b1a,
+      #ffb347,
+      #3b82f6,
+      #22d3ee,
+      #ff6b1a
+    );
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+}
+
+.link-card::before,
+.link-card::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+.link-card:hover {
+  animation-duration: 3s;
+}
+
+.link-card:focus-visible {
+  animation-duration: 3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card {
+    animation: none !important;
+  }
+}
