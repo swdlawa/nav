@@ -1784,3 +1784,7 @@ main {
   max-width: 620px;
   margin-inline: auto;
 }
+/* 8b. Page heading without an eyebrow ------------------------------- */
+.page-head h1:first-child {
+  margin-top: 0;
+}
