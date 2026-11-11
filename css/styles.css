@@ -1748,3 +1748,26 @@ main {
     animation: none !important;
   }
 }
+
+/* 6h. Solid black border ------------------------------------------------- */
+.link-card {
+  border: 2px solid #000;
+  background-color: #000;
+  background-image: none;
+  animation: none;
+}
+
+[data-theme="dark"] .link-card {
+  border-color: #000;
+  background-image: radial-gradient(
+    120% 140% at 50% 0%,
+    #1a1e25 0%,
+    #0e1013 55%,
+    #08090b 100%
+  );
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  animation: none;
+}
