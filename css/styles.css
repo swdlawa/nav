@@ -1719,3 +1719,47 @@ main {
     height: 120px;
   }
 }
+/* 6d. Five per row, continuous edge animation --------------------------- */
+:root {
+  --wrap: 1280px;
+}
+
+.link-grid {
+  grid-template-columns: repeat(auto-fill, 240px);
+  justify-content: start;
+  gap: 1.1rem;
+}
+
+/* keep the gradient edge moving so the effect is always visible */
+.link-card::before {
+  animation-play-state: running;
+  opacity: 0.92;
+}
+
+.link-card:hover::before {
+  animation-duration: 2.4s;
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .link-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+/* 6e. Final simplification: icon + name only, centred -------------------- */
+.link-card .link-domain {
+  display: none;
+}
+
+.link-card .link-name {
+  font-size: 1.08rem;
+  letter-spacing: 0;
+}
+
+.link-card .link-text {
+  gap: 0;
+}
+
+.link-card {
+  gap: 0.8rem;
+}
