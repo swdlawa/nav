@@ -1406,55 +1406,8 @@ main {
 }
 
 /* rotating gradient edge: masked to a 2px ring */
-.link-card::before {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  z-index: 3;
-  padding: 1.5px;
-  border-radius: 18px;
-  background: conic-gradient(
-    from var(--nav-angle),
-    #ff6b1a,
-    #ffb347,
-    #3b82f6,
-    #22d3ee,
-    #ff6b1a
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  opacity: 0.75;
-  pointer-events: none;
-  animation: nav-spin 6s linear infinite;
-  animation-play-state: paused;
-}
 
 /* soft glow behind the button */
-.link-card::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  z-index: -1;
-  border-radius: 18px;
-  background: conic-gradient(
-    from var(--nav-angle),
-    #ff6b1a,
-    #3b82f6,
-    #22d3ee,
-    #ff6b1a
-  );
-  filter: blur(14px);
-  opacity: 0.28;
-  pointer-events: none;
-  animation: nav-spin 6s linear infinite;
-  animation-play-state: paused;
-}
 
 .link-card:hover,
 .link-card:focus-visible {
@@ -1465,22 +1418,8 @@ main {
     0 16px 34px -20px rgba(0, 0, 0, 0.95);
 }
 
-.link-card:hover::before,
-.link-card:focus-visible::before,
-.link-card:hover::after,
-.link-card:focus-visible::after {
-  animation-play-state: running;
-}
 
-.link-card:hover::before,
-.link-card:focus-visible::before {
-  opacity: 1;
-}
 
-.link-card:hover::after,
-.link-card:focus-visible::after {
-  opacity: 0.6;
-}
 
 .link-card:active {
   transform: translateY(0) scale(0.985);
@@ -1506,10 +1445,6 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .link-card::before,
-  .link-card::after {
-    animation: none !important;
-  }
 }
 
 /* 12. Responsive ----------------------------------------------------------- */
@@ -1680,15 +1615,7 @@ main {
   box-shadow: 0 14px 28px -22px rgba(0, 0, 0, 0.9);
 }
 
-.link-card::before {
-  inset: -2px;
-  border-radius: 22px;
-  padding: 2px;
-}
 
-.link-card::after {
-  display: none !important;
-}
 
 .link-card .link-icon {
   width: 42px;
@@ -1730,22 +1657,6 @@ main {
   gap: 1.1rem;
 }
 
-/* keep the gradient edge moving so the effect is always visible */
-.link-card::before {
-  animation-play-state: running;
-  opacity: 0.92;
-}
-
-.link-card:hover::before {
-  animation-duration: 2.4s;
-  opacity: 1;
-}
-
-@media (max-width: 560px) {
-  .link-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
 /* 6e. Final simplification: icon + name only, centred -------------------- */
 .link-card .link-domain {
   display: none;
@@ -1823,13 +1734,6 @@ main {
   background-clip: padding-box, border-box;
 }
 
-.link-card::before,
-.link-card::after {
-  content: none !important;
-  display: none !important;
-  animation: none !important;
-  filter: none !important;
-}
 
 .link-card:hover {
   animation-duration: 3s;
