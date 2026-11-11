@@ -4,22 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>全部网址 · 拾页导航</title>
-<meta name="description" content="拾页导航收录的 26 个常用站点：百度、必应、Google 等搜索引擎，爱奇艺、腾讯视频、B 站等影视站，以及 DeepSeek、豆包、Kimi 等 AI 官网。">
+<meta name="description" content="拾页导航收录的 26 个常用站点：百度、必应、Google，爱奇艺、腾讯视频、B 站，以及 DeepSeek、豆包、Kimi 等 AI 官网。">
 <link rel="canonical" href="https://swdlawa.github.io/nav/directory.html">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="拾页导航">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="全部网址 · 拾页导航">
-<meta property="og:description" content="26 个常用入口，按搜索引擎、影视视频、AI 工具分类。">
+<meta property="og:description" content="26 个常用入口，按搜索引擎、影视视频、AI 工具分组。">
 <meta property="og:url" content="https://swdlawa.github.io/nav/directory.html">
 <meta property="og:image" content="https://swdlawa.github.io/nav/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="拾页导航：把每天要用的网站，收进一页里。">
+<meta property="og:image:alt" content="拾页导航：常用网站，一页打开。">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="全部网址 · 拾页导航">
-<meta name="twitter:description" content="26 个常用入口，按搜索引擎、影视视频、AI 工具分类。">
+<meta name="twitter:description" content="26 个常用入口，按搜索引擎、影视视频、AI 工具分组。">
 <meta name="twitter:image" content="https://swdlawa.github.io/nav/assets/og-image.png">
 
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -85,331 +85,89 @@
   <div class="wrap">
     <div class="page-head">
       <p class="eyebrow">全部收录</p>
-      <h1>26 个入口，一页找齐</h1>
-      <p>搜索引擎、影视站和 AI 官网，全部指向官方地址。按分类筛，或者直接搜站名——分类和关键词可以叠加。</p>
+      <h1>26 个常用入口</h1>
+      <p>只链官网，点开即走。</p>
     </div>
 
     <div class="toolbar">
-      <ul class="filters" role="list">
-        <li><button class="filter-btn" type="button" data-filter="all" aria-pressed="true">全部</button></li>
-        <li><button class="filter-btn" type="button" data-filter="search" aria-pressed="false">搜索引擎</button></li>
-        <li><button class="filter-btn" type="button" data-filter="video" aria-pressed="false">影视视频</button></li>
-        <li><button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI 工具</button></li>
-      </ul>
-
-      <div class="toolbar-right">
-        <div class="search-inline">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5"/>
-            <path d="M16 16l4.5 4.5"/>
-          </svg>
-          <label for="site-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">搜索站点</label>
-          <input id="site-search" type="search" data-search placeholder="搜站名，比如 爱奇艺" autocomplete="off">
-          <button class="clear-btn" type="button" data-clear aria-label="清空搜索">×</button>
-        </div>
-        <button class="btn btn--ghost" type="button" data-random>随机逛逛</button>
+      <div class="search-inline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5"/>
+          <path d="M16 16l4.5 4.5"/>
+        </svg>
+        <label for="site-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">搜索站点</label>
+        <input id="site-search" type="search" data-search placeholder="搜站名，比如 爱奇艺" autocomplete="off">
+        <button class="clear-btn" type="button" data-clear aria-label="清空搜索">×</button>
       </div>
+      <p class="result-count" data-result-count aria-live="polite">显示 26 / 26 个站点</p>
     </div>
 
-    <p class="result-count" data-result-count aria-live="polite">显示 26 / 26 个站点</p>
-    <p class="where">按 <kbd>/</kbd> 可以快速聚焦搜索框，<kbd>Esc</kbd> 清空关键词。</p>
-
-    <ul class="site-grid" data-directory role="list" style="padding-bottom:2.5rem">
-
-      <!-- 搜索引擎 -->
-      <li class="site-card" data-cat="search" data-site data-name="百度 Baidu" data-tags="搜索 百科 贴吧 中文">
-        <a href="https://www.baidu.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#2932e1" aria-hidden="true">BD</span>
-          <span class="site-body">
-            <span class="site-name">百度 <span class="domain">baidu.com</span></span>
-            <span class="site-desc">中文搜索的主力，查官网、百科、贴吧都从这开始。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="必应 Bing" data-tags="微软 英文 国际版 图片">
-        <a href="https://cn.bing.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#008373" aria-hidden="true">B</span>
-          <span class="site-body">
-            <span class="site-name">必应 <span class="domain">cn.bing.com</span></span>
-            <span class="site-desc">微软搜索，英文结果和国际版页面比百度干净。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="Google 谷歌" data-tags="搜索 英文 技术 资料">
-        <a href="https://www.google.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#4285f4" aria-hidden="true">G</span>
-          <span class="site-body">
-            <span class="site-name">Google <span class="domain">google.com</span></span>
-            <span class="site-desc">查英文资料和技术问题最准，需要相应的网络环境。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="搜狗搜索 Sogou" data-tags="微信 公众号 中文 搜索">
-        <a href="https://www.sogou.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#fb6022" aria-hidden="true">SG</span>
-          <span class="site-body">
-            <span class="site-name">搜狗搜索 <span class="domain">sogou.com</span></span>
-            <span class="site-desc">能搜微信公众号文章，这是它最实用的一点。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="360 搜索" data-tags="新闻 中文 导航 安全">
-        <a href="https://www.so.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#16a34a" aria-hidden="true">360</span>
-          <span class="site-body">
-            <span class="site-name">360 搜索 <span class="domain">so.com</span></span>
-            <span class="site-desc">老牌中文入口，查新闻和热榜比较快。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="夸克 Quark" data-tags="搜索 网盘 扫描 手机">
-        <a href="https://quark.sm.cn/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#6d4aff" aria-hidden="true">QK</span>
-          <span class="site-body">
-            <span class="site-name">夸克 <span class="domain">quark.sm.cn</span></span>
-            <span class="site-desc">界面干净的搜索入口，网盘和扫描功能也在一起。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="UC 浏览器" data-tags="浏览器 手机 官网 下载">
-        <a href="https://www.uc.cn/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#ff6a00" aria-hidden="true">UC</span>
-          <span class="site-body">
-            <span class="site-name">UC 浏览器 <span class="domain">uc.cn</span></span>
-            <span class="site-desc">UC 的官方入口，手机端装机量很大的浏览器。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="search" data-site data-name="QQ 浏览器" data-tags="浏览器 腾讯 官网 下载">
-        <a href="https://browser.qq.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#12b7f5" aria-hidden="true">QQ</span>
-          <span class="site-body">
-            <span class="site-name">QQ 浏览器 <span class="domain">browser.qq.com</span></span>
-            <span class="site-desc">腾讯的浏览器官网，PC 和手机版下载都在这里。</span>
-            <span class="card-foot"><span class="pill">搜索引擎</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <!-- 影视视频 -->
-      <li class="site-card" data-cat="video" data-site data-name="爱奇艺 iQIYI" data-tags="电视剧 综艺 电影 独播">
-        <a href="https://www.iqiyi.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#00be06" aria-hidden="true">IQ</span>
-          <span class="site-body">
-            <span class="site-name">爱奇艺 <span class="domain">iqiyi.com</span></span>
-            <span class="site-desc">剧集和综艺库存大，独播剧和迷雾剧场是常看的理由。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="腾讯视频 Tencent Video" data-tags="电视剧 动漫 体育 综艺">
-        <a href="https://v.qq.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#ff6022" aria-hidden="true">TX</span>
-          <span class="site-body">
-            <span class="site-name">腾讯视频 <span class="domain">v.qq.com</span></span>
-            <span class="site-desc">国产剧和动漫更新快，体育赛事版权也不少。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="优酷 Youku" data-tags="电视剧 电影 综艺 港剧">
-        <a href="https://www.youku.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#1f8dff" aria-hidden="true">YK</span>
-          <span class="site-body">
-            <span class="site-name">优酷 <span class="domain">youku.com</span></span>
-            <span class="site-desc">阿里系的视频站，港剧和经典老片比较多。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="芒果TV" data-tags="综艺 湖南卫视 电视剧">
-        <a href="https://www.mgtv.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#ff6f00" aria-hidden="true">MG</span>
-          <span class="site-body">
-            <span class="site-name">芒果 TV <span class="domain">mgtv.com</span></span>
-            <span class="site-desc">湖南卫视的官方平台，综艺基本都在这独播。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="哔哩哔哩 Bilibili" data-tags="番剧 弹幕 课程 视频">
-        <a href="https://www.bilibili.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#fb7299" aria-hidden="true">B</span>
-          <span class="site-body">
-            <span class="site-name">哔哩哔哩 <span class="domain">bilibili.com</span></span>
-            <span class="site-desc">看课、看评测、看番都在一个站，弹幕有时比视频好看。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="央视频" data-tags="央视 新闻 直播 体育 晚会">
-        <a href="https://www.yangshipin.cn/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#e60012" aria-hidden="true">YS</span>
-          <span class="site-body">
-            <span class="site-name">央视频 <span class="domain">yangshipin.cn</span></span>
-            <span class="site-desc">央视的官方平台，晚会、新闻和体育直播都在这。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="西瓜视频" data-tags="短视频 影视 纪录片 综艺">
-        <a href="https://www.ixigua.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#ff5533" aria-hidden="true">XG</span>
-          <span class="site-body">
-            <span class="site-name">西瓜视频 <span class="domain">ixigua.com</span></span>
-            <span class="site-desc">字节的中长视频平台，影视剪辑和纪录片不少。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="video" data-site data-name="Netflix 奈飞" data-tags="美剧 电影 海外 流媒体">
-        <a href="https://www.netflix.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#e50914" aria-hidden="true">NF</span>
-          <span class="site-body">
-            <span class="site-name">Netflix <span class="domain">netflix.com</span></span>
-            <span class="site-desc">海外剧集的官方入口，需要相应地区的网络环境。</span>
-            <span class="card-foot"><span class="pill">影视视频</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <!-- AI 工具 -->
-      <li class="site-card" data-cat="ai" data-site data-name="DeepSeek 深度求索" data-tags="大模型 API 编程 推理">
-        <a href="https://www.deepseek.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#4c6ef5" aria-hidden="true">DS</span>
-          <span class="site-body">
-            <span class="site-name">DeepSeek <span class="domain">deepseek.com</span></span>
-            <span class="site-desc">国产大模型，写代码和推理都稳，API 价格也便宜。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="豆包 字节跳动" data-tags="语音 问答 写作 中文">
-        <a href="https://www.doubao.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#f43f5e" aria-hidden="true">豆</span>
-          <span class="site-body">
-            <span class="site-name">豆包 <span class="domain">doubao.com</span></span>
-            <span class="site-desc">字节的 AI 助手，语音对话和日常问答很顺手。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="Kimi 月之暗面" data-tags="长文本 读论文 中文 上下文">
-        <a href="https://kimi.moonshot.cn/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#6d4aff" aria-hidden="true">K</span>
-          <span class="site-body">
-            <span class="site-name">Kimi <span class="domain">kimi.moonshot.cn</span></span>
-            <span class="site-desc">长上下文见长，扔几篇论文进去让它总结很方便。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="通义千问 阿里" data-tags="阿里 大模型 办公 写作">
-        <a href="https://tongyi.aliyun.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#615ced" aria-hidden="true">QW</span>
-          <span class="site-body">
-            <span class="site-name">通义 <span class="domain">tongyi.aliyun.com</span></span>
-            <span class="site-desc">阿里的对话模型，办公文档和会议纪要做得不错。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="文心一言 百度" data-tags="百度 中文 写作 问答">
-        <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#2932e1" aria-hidden="true">WX</span>
-          <span class="site-body">
-            <span class="site-name">文心一言 <span class="domain">yiyan.baidu.com</span></span>
-            <span class="site-desc">百度的对话产品，中文语境和搜索结合得紧。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="腾讯元宝" data-tags="腾讯 混元 公众号 阅读">
-        <a href="https://yuanbao.tencent.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#3370ff" aria-hidden="true">YB</span>
-          <span class="site-body">
-            <span class="site-name">腾讯元宝 <span class="domain">yuanbao.tencent.com</span></span>
-            <span class="site-desc">腾讯的 AI 助手，接入了混元和 DeepSeek，能读公众号。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="智谱清言 ChatGLM" data-tags="智谱 表格 长文档 国产">
-        <a href="https://chatglm.cn/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#0ea5e9" aria-hidden="true">ZP</span>
-          <span class="site-body">
-            <span class="site-name">智谱清言 <span class="domain">chatglm.cn</span></span>
-            <span class="site-desc">国产对话模型，长文档和表格处理比较顺手。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="秘塔 AI 搜索" data-tags="搜索 出处 资料 研究">
-        <a href="https://metaso.cn/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#0e7490" aria-hidden="true">秘</span>
-          <span class="site-body">
-            <span class="site-name">秘塔 AI 搜索 <span class="domain">metaso.cn</span></span>
-            <span class="site-desc">中文 AI 搜索，直接给结论并附出处，查资料省时间。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="ChatGPT OpenAI" data-tags="OpenAI 对话 写作 GPT">
-        <a href="https://chatgpt.com/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#10a37f" aria-hidden="true">GPT</span>
-          <span class="site-body">
-            <span class="site-name">ChatGPT <span class="domain">chatgpt.com</span></span>
-            <span class="site-desc">OpenAI 的对话助手，插件和生态最全。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
-      <li class="site-card" data-cat="ai" data-site data-name="Claude Anthropic" data-tags="Anthropic 长文本 写作 代码">
-        <a href="https://claude.ai/" target="_blank" rel="noopener">
-          <span class="mark" style="--mark:#d97757" aria-hidden="true">C</span>
-          <span class="site-body">
-            <span class="site-name">Claude <span class="domain">claude.ai</span></span>
-            <span class="site-desc">长文本和写作手感好，读长文档不容易走神。</span>
-            <span class="card-foot"><span class="pill">AI 工具</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </li>
-
+    <ul class="cat-jump" role="list">
+      <li><a href="#group-search">搜索引擎</a></li>
+      <li><a href="#group-video">影视视频</a></li>
+      <li><a href="#group-ai">AI 工具</a></li>
     </ul>
 
-    <p class="empty-state" data-empty-state hidden>
+    <div data-directory>
+
+      <section class="group" data-group id="group-search" aria-labelledby="title-search">
+        <div class="group-head">
+          <h2 id="title-search">搜索引擎</h2>
+          <span class="group-count" data-group-count>8 个</span>
+        </div>
+        <ul class="link-grid" role="list">
+          <li><a class="link-card" data-site data-name="百度 Baidu" data-tags="搜索 百科 贴吧 中文" href="https://www.baidu.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#2932e1" aria-hidden="true">BD</span><span class="link-text"><span class="link-name">百度</span><span class="link-domain">baidu.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="必应 Bing" data-tags="微软 英文 国际版 图片" href="https://cn.bing.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#008373" aria-hidden="true">B</span><span class="link-text"><span class="link-name">必应</span><span class="link-domain">cn.bing.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="Google 谷歌" data-tags="搜索 英文 技术 资料" href="https://www.google.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#4285f4" aria-hidden="true">G</span><span class="link-text"><span class="link-name">Google</span><span class="link-domain">google.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="搜狗搜索 Sogou" data-tags="微信 公众号 中文 搜索" href="https://www.sogou.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#fb6022" aria-hidden="true">SG</span><span class="link-text"><span class="link-name">搜狗搜索</span><span class="link-domain">sogou.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="360 搜索" data-tags="新闻 中文 导航 安全" href="https://www.so.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#16a34a" aria-hidden="true">360</span><span class="link-text"><span class="link-name">360 搜索</span><span class="link-domain">so.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="夸克 Quark" data-tags="搜索 网盘 扫描 手机" href="https://quark.sm.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#6d4aff" aria-hidden="true">QK</span><span class="link-text"><span class="link-name">夸克</span><span class="link-domain">quark.sm.cn</span></span></a></li>
+          <li><a class="link-card" data-site data-name="UC 浏览器" data-tags="浏览器 手机 官网 下载" href="https://www.uc.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6a00" aria-hidden="true">UC</span><span class="link-text"><span class="link-name">UC 浏览器</span><span class="link-domain">uc.cn</span></span></a></li>
+          <li><a class="link-card" data-site data-name="QQ 浏览器" data-tags="浏览器 腾讯 官网 下载" href="https://browser.qq.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#12b7f5" aria-hidden="true">QQ</span><span class="link-text"><span class="link-name">QQ 浏览器</span><span class="link-domain">browser.qq.com</span></span></a></li>
+        </ul>
+      </section>
+
+      <section class="group" data-group id="group-video" aria-labelledby="title-video">
+        <div class="group-head">
+          <h2 id="title-video">影视视频</h2>
+          <span class="group-count" data-group-count>8 个</span>
+        </div>
+        <ul class="link-grid" role="list">
+          <li><a class="link-card" data-site data-name="爱奇艺 iQIYI" data-tags="电视剧 综艺 电影 独播" href="https://www.iqiyi.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#00be06" aria-hidden="true">IQ</span><span class="link-text"><span class="link-name">爱奇艺</span><span class="link-domain">iqiyi.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="腾讯视频 Tencent Video" data-tags="电视剧 动漫 体育 综艺" href="https://v.qq.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6022" aria-hidden="true">TX</span><span class="link-text"><span class="link-name">腾讯视频</span><span class="link-domain">v.qq.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="优酷 Youku" data-tags="电视剧 电影 综艺 港剧" href="https://www.youku.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#1f8dff" aria-hidden="true">YK</span><span class="link-text"><span class="link-name">优酷</span><span class="link-domain">youku.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="芒果TV" data-tags="综艺 湖南卫视 电视剧" href="https://www.mgtv.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6f00" aria-hidden="true">MG</span><span class="link-text"><span class="link-name">芒果 TV</span><span class="link-domain">mgtv.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="哔哩哔哩 Bilibili" data-tags="番剧 弹幕 课程 视频" href="https://www.bilibili.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#fb7299" aria-hidden="true">B</span><span class="link-text"><span class="link-name">哔哩哔哩</span><span class="link-domain">bilibili.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="央视频" data-tags="央视 新闻 直播 体育 晚会" href="https://www.yangshipin.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#e60012" aria-hidden="true">YS</span><span class="link-text"><span class="link-name">央视频</span><span class="link-domain">yangshipin.cn</span></span></a></li>
+          <li><a class="link-card" data-site data-name="西瓜视频" data-tags="短视频 影视 纪录片 综艺" href="https://www.ixigua.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff5533" aria-hidden="true">XG</span><span class="link-text"><span class="link-name">西瓜视频</span><span class="link-domain">ixigua.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="Netflix 奈飞" data-tags="美剧 电影 海外 流媒体" href="https://www.netflix.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#e50914" aria-hidden="true">NF</span><span class="link-text"><span class="link-name">Netflix</span><span class="link-domain">netflix.com</span></span></a></li>
+        </ul>
+      </section>
+
+      <section class="group" data-group id="group-ai" aria-labelledby="title-ai">
+        <div class="group-head">
+          <h2 id="title-ai">AI 工具</h2>
+          <span class="group-count" data-group-count>10 个</span>
+        </div>
+        <ul class="link-grid" role="list">
+          <li><a class="link-card" data-site data-name="DeepSeek 深度求索" data-tags="大模型 API 编程 推理" href="https://www.deepseek.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#4c6ef5" aria-hidden="true">DS</span><span class="link-text"><span class="link-name">DeepSeek</span><span class="link-domain">deepseek.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="豆包 字节跳动" data-tags="语音 问答 写作 中文" href="https://www.doubao.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#f43f5e" aria-hidden="true">豆</span><span class="link-text"><span class="link-name">豆包</span><span class="link-domain">doubao.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="Kimi 月之暗面" data-tags="长文本 读论文 中文 上下文" href="https://kimi.moonshot.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#6d4aff" aria-hidden="true">K</span><span class="link-text"><span class="link-name">Kimi</span><span class="link-domain">kimi.moonshot.cn</span></span></a></li>
+          <li><a class="link-card" data-site data-name="通义千问 阿里" data-tags="阿里 大模型 办公 写作" href="https://tongyi.aliyun.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#615ced" aria-hidden="true">QW</span><span class="link-text"><span class="link-name">通义</span><span class="link-domain">tongyi.aliyun.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="文心一言 百度" data-tags="百度 中文 写作 问答" href="https://yiyan.baidu.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#2932e1" aria-hidden="true">WX</span><span class="link-text"><span class="link-name">文心一言</span><span class="link-domain">yiyan.baidu.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="腾讯元宝" data-tags="腾讯 混元 公众号 阅读" href="https://yuanbao.tencent.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#3370ff" aria-hidden="true">YB</span><span class="link-text"><span class="link-name">腾讯元宝</span><span class="link-domain">yuanbao.tencent.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="智谱清言 ChatGLM" data-tags="智谱 表格 长文档 国产" href="https://chatglm.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#0ea5e9" aria-hidden="true">ZP</span><span class="link-text"><span class="link-name">智谱清言</span><span class="link-domain">chatglm.cn</span></span></a></li>
+          <li><a class="link-card" data-site data-name="秘塔 AI 搜索" data-tags="搜索 出处 资料 研究" href="https://metaso.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#0e7490" aria-hidden="true">秘</span><span class="link-text"><span class="link-name">秘塔 AI 搜索</span><span class="link-domain">metaso.cn</span></span></a></li>
+          <li><a class="link-card" data-site data-name="ChatGPT OpenAI" data-tags="OpenAI 对话 写作 GPT" href="https://chatgpt.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#10a37f" aria-hidden="true">GPT</span><span class="link-text"><span class="link-name">ChatGPT</span><span class="link-domain">chatgpt.com</span></span></a></li>
+          <li><a class="link-card" data-site data-name="Claude Anthropic" data-tags="Anthropic 长文本 写作 代码" href="https://claude.ai/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#d97757" aria-hidden="true">C</span><span class="link-text"><span class="link-name">Claude</span><span class="link-domain">claude.ai</span></span></a></li>
+        </ul>
+      </section>
+
+    </div>
+
+    <p class="empty-state" data-empty-state hidden style="margin-top:1.5rem">
       <strong>没有匹配的站点</strong>
-      换一个关键词，或者看看 <a href="directory.html">全部网址</a>。当前筛选：<span data-empty-term></span>
+      换个关键词试试，或者回到 <a href="index.html">首页</a>。当前关键词：<span data-empty-term></span>
     </p>
   </div>
 
@@ -423,7 +181,7 @@
           <img class="brand-mark" src="assets/favicon.svg" alt="" width="32" height="32">
           <span class="brand-text">拾页导航<small>Shiye Nav</small></span>
         </a>
-        <p>一个学生手工维护的入口页。只链官网，没有广告位。</p>
+        <p>常用网站的官方入口。没有广告位，也没有“猜你喜欢”。</p>
       </div>
       <div class="footer-col">
         <h2>页面</h2>
@@ -437,15 +195,15 @@
       <div class="footer-col">
         <h2>分类</h2>
         <ul>
-          <li><a href="directory.html?cat=search">搜索引擎</a></li>
-          <li><a href="directory.html?cat=video">影视视频</a></li>
-          <li><a href="directory.html?cat=ai">AI 工具</a></li>
+          <li><a href="#group-search">搜索引擎</a></li>
+          <li><a href="#group-video">影视视频</a></li>
+          <li><a href="#group-ai">AI 工具</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span data-year>2026</span> 拾页导航 · 手写 HTML / CSS / JS</p>
-      <p>外部链接均指向各自的官方网站。</p>
+      <p>外部链接均指向官方网站。</p>
     </div>
   </div>
 </footer>

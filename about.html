@@ -103,11 +103,11 @@
       </ul>
 
       <h2>技术实现</h2>
-      <p>纯静态：HTML + CSS + 原生 JavaScript，没有框架、没有构建步骤、没有后端。搜索和筛选都在浏览器里完成，所以打开很快，也不需要把关键词发给任何服务器。</p>
+      <p>纯静态：HTML + CSS + 原生 JavaScript，没有框架、没有构建步骤、没有后端。搜索完全在浏览器里完成，所以打开很快，也不需要把关键词发给任何服务器。</p>
       <p>几个细节：</p>
       <ul>
         <li>深色模式跟随系统，也可以手动切换，选择存在 <code>localStorage</code> 里；</li>
-        <li>筛选状态会写进地址栏（<code>?cat=ai&amp;q=pdf</code>），可以直接分享某一次筛选结果；</li>
+        <li>搜索关键词会写进地址栏（<code>?q=pdf</code>），可以直接把某次搜索结果发给别人；</li>
         <li>按 <code>/</code> 聚焦搜索框，<code>Esc</code> 清空；</li>
         <li>所有外链都在新标签页打开，并带 <code>rel="noopener"</code>。</li>
       </ul>
@@ -118,7 +118,7 @@
           <time datetime="2026-11">2026.11</time>
           <div>
             <h3>第一版上线</h3>
-            <p>26 个站点、3 个分类，搜索与筛选、深浅色、推荐表单。</p>
+            <p>26 个站点、3 个分类，分组布局、搜索、深浅色、推荐表单。</p>
           </div>
         </li>
         <li>
@@ -178,10 +178,9 @@
       <div class="footer-col">
         <h2>分类</h2>
         <ul>
-          <li><a href="directory.html?cat=ai">AI 工具</a></li>
-          <li><a href="directory.html?cat=search">搜索引擎</a></li>
-          <li><a href="directory.html?cat=video">影视视频</a></li>
-          <li><a href="directory.html?cat=ai">AI 工具</a></li>
+          <li><a href="directory.html#group-search">搜索引擎</a></li>
+          <li><a href="directory.html#group-video">影视视频</a></li>
+          <li><a href="directory.html#group-ai">AI 工具</a></li>
         </ul>
       </div>
     </div>

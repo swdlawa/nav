@@ -1,7 +1,7 @@
 # 拾页导航
 
 一个中文网址导航站：纯 **HTML + CSS + 原生 JavaScript**，没有框架、没有构建步骤、没有后端。
-搜索和筛选全部在浏览器里完成，关键词不会发给任何服务器。
+搜索全部在浏览器里完成，关键词不会发给任何服务器。
 
 > 线上地址：https://swdlawa.github.io/nav/
 
@@ -12,14 +12,14 @@
 ```
 nav-site/
 ├── index.html              首页：搜索、精选 6 个、分类入口、最新收录
-├── directory.html          全部网址：26 个站点 + 搜索 + 分类筛选 + 随机逛逛
+├── directory.html          全部网址：26 个站点，按分类分组 + 搜索
 ├── about.html              关于：为什么做、收录标准、技术细节、更新日志
 ├── submit.html             推荐网址：表单校验后调起邮件客户端
 ├── 404.html                找不到页面
 ├── manifest.webmanifest    Web App Manifest
 ├── favicon.ico             16/32/48 多尺寸图标
 ├── css/styles.css          全部样式（含深色模式与响应式）
-├── js/main.js              主题、菜单、搜索筛选、表单校验、滚动动画
+├── js/main.js              主题、菜单、分组搜索、表单校验、滚动动画
 ├── assets/
 │   ├── favicon.svg / favicon.png / apple-touch-icon.png
 │   ├── icon-192.png / icon-512.png
@@ -34,14 +34,13 @@ nav-site/
 ## 2. 功能
 
 - **站内搜索**：匹配站名、描述、标签和域名，边输边筛；按 `/` 聚焦，`Esc` 清空。
-- **分类筛选**：全部 / 搜索引擎 / 影视视频 / AI 工具。
-- **状态可分享**：筛选条件写进地址栏（`?cat=ai&q=pdf`），复制链接即可还原。
-- **随机逛逛**：从当前筛选结果里随机开一个。
+- **分组浏览**：搜索引擎 / 影视视频 / AI 工具，每组一个区块，顶部有跳转锚点。
+- **状态可分享**：搜索关键词写进地址栏（`?q=pdf`），复制链接即可还原。
 - **深色模式**：跟随系统，也可手动切换，选择保存在 `localStorage`。
 - **推荐表单**：浏览器端校验（名称、完整网址、理由 ≥ 8 字），再拼成邮件。
 - **响应式**：390px 手机宽度下导航折叠、卡片单列、搜索框换行。
 
-无障碍：跳转链接、可见焦点、`aria-live` 结果计数、`aria-pressed` 筛选状态、`aria-expanded` 菜单、
+无障碍：跳转链接、可见焦点、`aria-live` 结果计数、`aria-expanded` 菜单、
 `prefers-reduced-motion` 降级。
 
 ---
@@ -59,7 +58,7 @@ node scripts/serve.mjs 8080
 ## 4. 增加一个站点
 
 1. 在 `directory.html` 的 `<ul data-directory>` 里复制一张卡片，改这五处：
-   - `data-cat`：`ai` / `dev` / `study` / `design` / `tools`
+   - 放进 `directory.html` 里对应 `<section data-group>` 的 `<ul class="link-grid">`
    - `data-name`：搜索用的完整名称（中英文都写上）
    - `data-tags`：别名、同义词，用空格分隔
    - 链接、图标缩写与颜色（`style="--mark:#4c6ef5"`）

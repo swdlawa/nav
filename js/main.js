@@ -109,37 +109,24 @@
     });
   }
 
-  /* --- 网址目录：搜索 + 分类筛选 ----------------------------------------- */
+  /* --- 网址目录：搜索（按分组过滤） ------------------------------------- */
   var directory = doc.querySelector("[data-directory]");
 
   if (directory) {
     var cards = Array.prototype.slice.call(
       directory.querySelectorAll("[data-site]")
     );
-    var chips = Array.prototype.slice.call(
-      doc.querySelectorAll("[data-filter]")
+    var groups = Array.prototype.slice.call(
+      directory.querySelectorAll("[data-group]")
     );
     var search = doc.querySelector("[data-search]");
     var clearBtn = doc.querySelector("[data-clear]");
     var countEl = doc.querySelector("[data-result-count]");
     var emptyEl = doc.querySelector("[data-empty-state]");
     var emptyTerm = doc.querySelector("[data-empty-term]");
-    var randomBtn = doc.querySelector("[data-random]");
-    var state = { cat: "all", q: "" };
-
-    var catNames = {
-      all: "全部",
-      ai: "AI 工具",
-      dev: "开发文档",
-      study: "学习资源",
-      design: "设计素材",
-      tools: "效率工具"
-    };
+    var state = { q: "" };
 
     function matches(card) {
-      if (state.cat !== "all" && card.getAttribute("data-cat") !== state.cat) {
-        return false;
-      }
       if (!state.q) return true;
       var haystack = (
         card.getAttribute("data-name") +
@@ -153,10 +140,19 @@
 
     function apply(pushUrl) {
       var shown = 0;
+
       cards.forEach(function (card) {
         var ok = matches(card);
         card.hidden = !ok;
+        card.parentNode.hidden = !ok;
         if (ok) shown += 1;
+      });
+
+      groups.forEach(function (group) {
+        var visible = group.querySelectorAll("[data-site]:not([hidden])").length;
+        group.hidden = visible === 0;
+        var counter = group.querySelector("[data-group-count]");
+        if (counter) counter.textContent = visible + " 个";
       });
 
       if (countEl) {
@@ -165,26 +161,15 @@
           (state.q ? " · 关键词「" + state.q + "」" : "");
       }
       if (emptyEl) emptyEl.hidden = shown !== 0;
-      if (emptyTerm) emptyTerm.textContent = state.q || "这个分类";
-
-      chips.forEach(function (chip) {
-        chip.setAttribute(
-          "aria-pressed",
-          chip.getAttribute("data-filter") === state.cat ? "true" : "false"
-        );
-      });
-
+      if (emptyTerm) emptyTerm.textContent = state.q || "";
       if (clearBtn) clearBtn.classList.toggle("is-visible", Boolean(state.q));
 
       if (pushUrl && window.history.replaceState) {
-        var params = new URLSearchParams();
-        if (state.q) params.set("q", state.q);
-        if (state.cat !== "all") params.set("cat", state.cat);
-        var query = params.toString();
+        var query = state.q ? "?q=" + encodeURIComponent(state.q) : "";
         window.history.replaceState(
           null,
           "",
-          window.location.pathname + (query ? "?" + query : "")
+          window.location.pathname + query
         );
       }
     }
@@ -192,10 +177,7 @@
     function fromUrl() {
       var params = new URLSearchParams(window.location.search);
       var q = params.get("q") || "";
-      var cat = params.get("cat") || "all";
-      if (!catNames[cat]) cat = "all";
       state.q = q.trim().toLowerCase();
-      state.cat = cat;
       if (search) search.value = q;
       apply(false);
     }
@@ -219,31 +201,12 @@
       });
     }
 
-    chips.forEach(function (chip) {
-      chip.addEventListener("click", function () {
-        state.cat = chip.getAttribute("data-filter");
-        apply(true);
-      });
-    });
-
     if (clearBtn) {
       clearBtn.addEventListener("click", function () {
         if (search) search.value = "";
         state.q = "";
         apply(true);
         if (search) search.focus();
-      });
-    }
-
-    if (randomBtn) {
-      randomBtn.addEventListener("click", function () {
-        var visible = cards.filter(function (card) {
-          return !card.hidden;
-        });
-        if (!visible.length) return;
-        var pick = visible[Math.floor(Math.random() * visible.length)];
-        var link = pick.querySelector("a");
-        if (link) window.open(link.href, "_blank", "noopener");
       });
     }
 
