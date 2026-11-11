@@ -1,0 +1,373 @@
+/* ==========================================================================
+   拾页导航 — 交互脚本
+   原生 JS，无依赖。所有功能都是渐进增强：关掉 JS 页面仍可浏览。
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var doc = document;
+  var root = doc.documentElement;
+
+  /* --- 主题 ------------------------------------------------------------- */
+  var themeToggle = doc.querySelector("[data-theme-toggle]");
+  var themeMeta = doc.querySelector('meta[name="theme-color"]');
+
+  function applyTheme(theme, persist) {
+    root.setAttribute("data-theme", theme);
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      themeToggle.setAttribute(
+        "aria-label",
+        theme === "dark" ? "切换到浅色模式" : "切换到深色模式"
+      );
+    }
+    if (themeMeta) {
+      themeMeta.setAttribute("content", theme === "dark" ? "#0f1612" : "#f2f5ef");
+    }
+    if (persist) {
+      try {
+        localStorage.setItem("theme", theme);
+      } catch (err) {
+        /* 隐私模式忽略 */
+      }
+    }
+  }
+
+  applyTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+    });
+  }
+
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  if (mq.addEventListener) {
+    mq.addEventListener("change", function (event) {
+      var saved = null;
+      try {
+        saved = localStorage.getItem("theme");
+      } catch (err) {
+        /* 忽略 */
+      }
+      if (!saved) applyTheme(event.matches ? "dark" : "light", false);
+    });
+  }
+
+  /* --- 移动端菜单 -------------------------------------------------------- */
+  var navToggle = doc.querySelector("[data-nav-toggle]");
+  var siteNav = doc.getElementById("site-nav");
+
+  function closeNav() {
+    if (!siteNav || !navToggle) return;
+    siteNav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "打开菜单");
+  }
+
+  if (navToggle && siteNav) {
+    navToggle.addEventListener("click", function () {
+      var open = siteNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "关闭菜单" : "打开菜单");
+    });
+
+    siteNav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) closeNav();
+    });
+
+    doc.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (!siteNav.classList.contains("is-open")) return;
+      closeNav();
+      navToggle.focus();
+    });
+
+    doc.addEventListener("click", function (event) {
+      if (!siteNav.classList.contains("is-open")) return;
+      if (siteNav.contains(event.target) || navToggle.contains(event.target)) return;
+      closeNav();
+    });
+  }
+
+  /* --- 滚动状态与回到顶部 ------------------------------------------------ */
+  var header = doc.querySelector(".site-header");
+  var toTop = doc.querySelector("[data-to-top]");
+
+  function onScroll() {
+    var y = window.scrollY || 0;
+    if (header) header.classList.toggle("is-scrolled", y > 8);
+    if (toTop) toTop.classList.toggle("is-visible", y > 600);
+  }
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  if (toTop) {
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* --- 网址目录：搜索 + 分类筛选 ----------------------------------------- */
+  var directory = doc.querySelector("[data-directory]");
+
+  if (directory) {
+    var cards = Array.prototype.slice.call(
+      directory.querySelectorAll("[data-site]")
+    );
+    var chips = Array.prototype.slice.call(
+      doc.querySelectorAll("[data-filter]")
+    );
+    var search = doc.querySelector("[data-search]");
+    var clearBtn = doc.querySelector("[data-clear]");
+    var countEl = doc.querySelector("[data-result-count]");
+    var emptyEl = doc.querySelector("[data-empty-state]");
+    var emptyTerm = doc.querySelector("[data-empty-term]");
+    var randomBtn = doc.querySelector("[data-random]");
+    var state = { cat: "all", q: "" };
+
+    var catNames = {
+      all: "全部",
+      ai: "AI 工具",
+      dev: "开发文档",
+      study: "学习资源",
+      design: "设计素材",
+      tools: "效率工具"
+    };
+
+    function matches(card) {
+      if (state.cat !== "all" && card.getAttribute("data-cat") !== state.cat) {
+        return false;
+      }
+      if (!state.q) return true;
+      var haystack = (
+        card.getAttribute("data-name") +
+        " " +
+        card.getAttribute("data-tags") +
+        " " +
+        card.textContent
+      ).toLowerCase();
+      return haystack.indexOf(state.q) !== -1;
+    }
+
+    function apply(pushUrl) {
+      var shown = 0;
+      cards.forEach(function (card) {
+        var ok = matches(card);
+        card.hidden = !ok;
+        if (ok) shown += 1;
+      });
+
+      if (countEl) {
+        countEl.textContent =
+          "显示 " + shown + " / " + cards.length + " 个站点" +
+          (state.q ? " · 关键词「" + state.q + "」" : "");
+      }
+      if (emptyEl) emptyEl.hidden = shown !== 0;
+      if (emptyTerm) emptyTerm.textContent = state.q || "这个分类";
+
+      chips.forEach(function (chip) {
+        chip.setAttribute(
+          "aria-pressed",
+          chip.getAttribute("data-filter") === state.cat ? "true" : "false"
+        );
+      });
+
+      if (clearBtn) clearBtn.classList.toggle("is-visible", Boolean(state.q));
+
+      if (pushUrl && window.history.replaceState) {
+        var params = new URLSearchParams();
+        if (state.q) params.set("q", state.q);
+        if (state.cat !== "all") params.set("cat", state.cat);
+        var query = params.toString();
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname + (query ? "?" + query : "")
+        );
+      }
+    }
+
+    function fromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var q = params.get("q") || "";
+      var cat = params.get("cat") || "all";
+      if (!catNames[cat]) cat = "all";
+      state.q = q.trim().toLowerCase();
+      state.cat = cat;
+      if (search) search.value = q;
+      apply(false);
+    }
+
+    if (search) {
+      search.addEventListener("input", function () {
+        state.q = search.value.trim().toLowerCase();
+        apply(true);
+      });
+
+      doc.addEventListener("keydown", function (event) {
+        if (event.key === "/" && doc.activeElement !== search) {
+          event.preventDefault();
+          search.focus();
+        }
+        if (event.key === "Escape" && doc.activeElement === search && search.value) {
+          search.value = "";
+          state.q = "";
+          apply(true);
+        }
+      });
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        state.cat = chip.getAttribute("data-filter");
+        apply(true);
+      });
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function () {
+        if (search) search.value = "";
+        state.q = "";
+        apply(true);
+        if (search) search.focus();
+      });
+    }
+
+    if (randomBtn) {
+      randomBtn.addEventListener("click", function () {
+        var visible = cards.filter(function (card) {
+          return !card.hidden;
+        });
+        if (!visible.length) return;
+        var pick = visible[Math.floor(Math.random() * visible.length)];
+        var link = pick.querySelector("a");
+        if (link) window.open(link.href, "_blank", "noopener");
+      });
+    }
+
+    fromUrl();
+  }
+
+  /* --- 推荐网址表单 ------------------------------------------------------ */
+  var form = doc.querySelector("[data-submit-form]");
+
+  if (form) {
+    var statusEl = form.querySelector("[data-form-status]");
+    var email = form.getAttribute("data-mailto") || "";
+    var urlField = form.elements.url;
+
+    function setError(field, message) {
+      var error = doc.getElementById(field.id + "-error");
+      field.setAttribute("aria-invalid", message ? "true" : "false");
+      if (error) {
+        error.textContent = message || "";
+        error.classList.toggle("is-visible", Boolean(message));
+      }
+    }
+
+    function isValidUrl(value) {
+      try {
+        var parsed = new URL(value);
+        return parsed.protocol === "http:" || parsed.protocol === "https:";
+      } catch (err) {
+        return false;
+      }
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = form.elements.name;
+      var reason = form.elements.reason;
+      var valid = true;
+
+      if (!name.value.trim()) {
+        setError(name, "请填一下网站名称。");
+        valid = false;
+      } else {
+        setError(name, "");
+      }
+
+      var url = urlField.value.trim();
+      if (!url) {
+        setError(urlField, "网址不能为空。");
+        valid = false;
+      } else if (!isValidUrl(url)) {
+        setError(urlField, "需要以 http:// 或 https:// 开头的完整网址。");
+        valid = false;
+      } else {
+        setError(urlField, "");
+      }
+
+      if (reason.value.trim().length < 8) {
+        setError(reason, "至少写 8 个字，说说它好在哪里。");
+        valid = false;
+      } else {
+        setError(reason, "");
+      }
+
+      if (!valid) {
+        if (statusEl) {
+          statusEl.textContent = "还有几处需要修改。";
+          statusEl.className = "form-status is-error";
+        }
+        var firstBad = form.querySelector('[aria-invalid="true"]');
+        if (firstBad) firstBad.focus();
+        return;
+      }
+
+      var subject = encodeURIComponent("[拾页导航] 推荐网站：" + name.value.trim());
+      var body = encodeURIComponent(
+        "网站名称：" + name.value.trim() +
+        "\n网址：" + url +
+        "\n分类：" + form.elements.category.value +
+        "\n推荐理由：" + reason.value.trim()
+      );
+      window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
+
+      if (statusEl) {
+        statusEl.textContent = "正在打开你的邮件客户端…";
+        statusEl.className = "form-status";
+      }
+    });
+
+    Array.prototype.forEach.call(
+      form.querySelectorAll("input, textarea"),
+      function (field) {
+        field.addEventListener("input", function () {
+          if (field.getAttribute("aria-invalid") === "true") setError(field, "");
+        });
+      }
+    );
+  }
+
+  /* --- 滚动出现 ---------------------------------------------------------- */
+  var reveals = Array.prototype.slice.call(doc.querySelectorAll(".reveal"));
+
+  if ("IntersectionObserver" in window && reveals.length) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+    );
+    reveals.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+
+  /* --- 年份 -------------------------------------------------------------- */
+  Array.prototype.forEach.call(doc.querySelectorAll("[data-year]"), function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+})();
