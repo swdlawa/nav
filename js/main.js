@@ -12,13 +12,15 @@
   var themeToggle = doc.querySelector("[data-theme-toggle]");
   var themeMeta = doc.querySelector('meta[name="theme-color"]');
 
+  /* 应用主题：改 <html data-theme>、更新按钮状态、同步浏览器地址栏颜色。
+     persist=true 时写入 localStorage，下次打开还记得。 */
   function applyTheme(theme, persist) {
     root.setAttribute("data-theme", theme);
     if (themeToggle) {
       themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
       themeToggle.setAttribute(
         "aria-label",
-        theme === "dark" ? "切换到浅色模式" : "切换到深色模式"
+        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
       );
     }
     if (themeMeta) {
@@ -62,14 +64,14 @@
     if (!siteNav || !navToggle) return;
     siteNav.classList.remove("is-open");
     navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "打开菜单");
+    navToggle.setAttribute("aria-label", "Open menu");
   }
 
   if (navToggle && siteNav) {
     navToggle.addEventListener("click", function () {
       var open = siteNav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-      navToggle.setAttribute("aria-label", open ? "关闭菜单" : "打开菜单");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
 
     siteNav.addEventListener("click", function (event) {
@@ -126,6 +128,8 @@
     var emptyTerm = doc.querySelector("[data-empty-term]");
     var state = { q: "" };
 
+    /* 判断一张卡片是否命中关键词：站名 + 标签 + 可见文本，全部转小写后做包含匹配。
+       这是“搜索”的核心，只读 DOM，不发请求。 */
     function matches(card) {
       if (!state.q) return true;
       var haystack = (
@@ -138,6 +142,12 @@
       return haystack.indexOf(state.q) !== -1;
     }
 
+    /* 真正执行过滤：
+       1. 逐张卡片设置 hidden；
+       2. 某组一张都不剩时，整组隐藏；
+       3. 更新“显示 X / 26”和空状态；
+       4. 把关键词写进地址栏 ?q=，方便分享。
+       pushUrl=false 用于页面刚打开时，避免多余的历史记录。 */
     function apply(pushUrl) {
       var shown = 0;
 
@@ -152,13 +162,13 @@
         var visible = group.querySelectorAll("[data-site]:not([hidden])").length;
         group.hidden = visible === 0;
         var counter = group.querySelector("[data-group-count]");
-        if (counter) counter.textContent = visible + " 个";
+        if (counter) counter.textContent = visible + " sites";
       });
 
       if (countEl) {
         countEl.textContent =
-          "显示 " + shown + " / " + cards.length + " 个站点" +
-          (state.q ? " · 关键词「" + state.q + "」" : "");
+          "Showing " + shown + " / " + cards.length + " sites" +
+          (state.q ? " · query “" + state.q + "”" : "");
       }
       if (emptyEl) emptyEl.hidden = shown !== 0;
       if (emptyTerm) emptyTerm.textContent = state.q || "";
@@ -174,6 +184,7 @@
       }
     }
 
+    /* 页面加载时读取 ?q=：从分享链接进入也能还原搜索结果。 */
     function fromUrl() {
       var params = new URLSearchParams(window.location.search);
       var q = params.get("q") || "";
@@ -246,7 +257,7 @@
       var valid = true;
 
       if (!name.value.trim()) {
-        setError(name, "请填一下网站名称。");
+        setError(name, "Please enter the site name.");
         valid = false;
       } else {
         setError(name, "");
@@ -254,17 +265,17 @@
 
       var url = urlField.value.trim();
       if (!url) {
-        setError(urlField, "网址不能为空。");
+        setError(urlField, "The URL cannot be empty.");
         valid = false;
       } else if (!isValidUrl(url)) {
-        setError(urlField, "需要以 http:// 或 https:// 开头的完整网址。");
+        setError(urlField, "Use a full URL starting with http:// or https://.");
         valid = false;
       } else {
         setError(urlField, "");
       }
 
       if (reason.value.trim().length < 8) {
-        setError(reason, "至少写 8 个字，说说它好在哪里。");
+        setError(reason, "Write at least 8 characters about why it is useful.");
         valid = false;
       } else {
         setError(reason, "");
@@ -272,7 +283,7 @@
 
       if (!valid) {
         if (statusEl) {
-          statusEl.textContent = "还有几处需要修改。";
+          statusEl.textContent = "A few fields need attention.";
           statusEl.className = "form-status is-error";
         }
         var firstBad = form.querySelector('[aria-invalid="true"]');
@@ -280,17 +291,19 @@
         return;
       }
 
-      var subject = encodeURIComponent("[拾页导航] 推荐网站：" + name.value.trim());
+      var subject = encodeURIComponent("[Shiye Nav] Site suggestion: " + name.value.trim());
       var body = encodeURIComponent(
-        "网站名称：" + name.value.trim() +
-        "\n网址：" + url +
-        "\n分类：" + form.elements.category.value +
-        "\n推荐理由：" + reason.value.trim()
+        "Site: " + name.value.trim() +
+        "\nURL: " + url +
+        "\nCategory: " + form.elements.category.value +
+        "\nWhy: " + reason.value.trim()
       );
+      /* 校验全部通过：拼一封邮件交给系统邮件客户端。
+         静态站没有后端，这是“提交”最轻的做法。 */
       window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
 
       if (statusEl) {
-        statusEl.textContent = "正在打开你的邮件客户端…";
+        statusEl.textContent = "Opening your email app…";
         statusEl.className = "form-status";
       }
     });

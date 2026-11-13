@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html lang="en" class="no-js">
 <head>
+<!-- ==========================================================================
+     页面元信息（不显示在页面上，给浏览器 / 搜索引擎 / 社交平台看）
+     - charset / viewport：编码与手机缩放
+     - description / canonical：搜索摘要与正式地址
+     - og:* / twitter:*：分享到微信、X 时的标题与图片
+     - icon / manifest：favicon 与“添加到主屏幕”
+     - styles.css?v=15：v=15 是缓存版本号，改样式后 +1 可强制浏览器取新文件
+     ========================================================================== -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>拾页导航 — 常用网站，一页打开</title>
-<meta name="description" content="百度、必应、爱奇艺、腾讯视频、B 站、DeepSeek、豆包等常用站点的官方入口，按搜索引擎、影视视频、AI 工具分组。">
+<title>Shiye Nav — Your daily sites, one page</title>
+<meta name="description" content="Official entry points for Baidu, Bing, iQIYI, Tencent Video, Bilibili, DeepSeek, Doubao and more — grouped into search, streaming and AI tools.">
 <link rel="canonical" href="https://swdlawa.github.io/nav/">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="拾页导航">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:title" content="拾页导航 — 常用网站，一页打开">
-<meta property="og:description" content="搜索引擎、影视视频、AI 工具的官方入口，按类分好，点一下就跳。">
+<meta property="og:site_name" content="Shiye Nav">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Shiye Nav — Your daily sites, one page">
+<meta property="og:description" content="Official entry points for search, streaming and AI tools — grouped, one click away.">
 <meta property="og:url" content="https://swdlawa.github.io/nav/">
 <meta property="og:image" content="https://swdlawa.github.io/nav/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="拾页导航：常用网站，一页打开。">
+<meta property="og:image:alt" content="Shiye Nav: your daily sites, one page.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="拾页导航 — 常用网站，一页打开">
-<meta name="twitter:description" content="搜索引擎、影视视频、AI 工具的官方入口，按类分好。">
+<meta name="twitter:title" content="Shiye Nav — Your daily sites, one page">
+<meta name="twitter:description" content="Official entry points for search, streaming and AI tools — grouped.">
 <meta name="twitter:image" content="https://swdlawa.github.io/nav/assets/og-image.png">
 
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -45,23 +53,25 @@
 <script src="js/main.js?v=15" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#main">跳到主要内容</a>
+<a class="skip-link" href="#main">Skip to main content</a>
 
+<!-- 全站页头：品牌 → 主导航 → 主题切换 / 移动端菜单
+     导航用 aria-current="page" 标出当前页，读屏软件能读出来 -->
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="index.html">
       <img class="brand-mark" src="assets/favicon.svg" alt="" width="32" height="32">
-      <span class="brand-text">拾页导航<small>Shiye Nav</small></span>
+      <span class="brand-text">Shiye Nav<small>Daily start page</small></span>
     </a>
-    <nav class="site-nav" id="site-nav" aria-label="主导航">
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="index.html" aria-current="page">首页</a></li>
-        <li><a href="directory.html">全部网址</a></li>
-        <li><a href="submit.html">推荐网址</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="directory.html">All sites</a></li>
+        <li><a href="submit.html">Submit</a></li>
       </ul>
     </nav>
     <div class="header-tools">
-      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换到深色模式">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4.2"/>
           <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/>
@@ -70,7 +80,7 @@
           <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2Z"/>
         </svg>
       </button>
-      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16"/>
         </svg>
@@ -79,39 +89,44 @@
   </div>
 </header>
 
+<!-- ==================== 主内容开始 ==================== -->
 <main id="main">
 
+  <!-- 首屏：搜索框 + 统计。标题与说明文字已按需求移除，页面直接从搜索开始。
+       form 的 action 指向 directory.html：即使 JS 失效，提交也能带 ?q= 跳过去 -->
   <div class="wrap hero hero--compact">
     <form class="search-form" action="directory.html" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
         <circle cx="11" cy="11" r="6.5"/>
         <path d="M16 16l4.5 4.5"/>
       </svg>
-      <label for="hero-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">搜索网站</label>
-      <input id="hero-search" type="search" name="q" placeholder="搜网站，比如 爱奇艺" autocomplete="off">
-      <button class="btn btn--accent" type="submit">搜索</button>
+      <label for="hero-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search sites</label>
+      <input id="hero-search" type="search" name="q" placeholder="Search sites, e.g. iQIYI" autocomplete="off">
+      <button class="btn btn--accent" type="submit">Search</button>
     </form>
 
     <p class="hero-meta">
-      <span><span class="dot" aria-hidden="true"></span>26 个站点</span>
-      <span>3 个分类</span>
-      <span>只链官网</span>
+      <span><span class="dot" aria-hidden="true"></span>26 sites</span>
+      <span>3 groups</span>
+      <span>Official links only</span>
     </p>
   </div>
 
+  <!-- 三组常用入口：每组只展示 5 个，其余在“查看全部”里。
+       每个按钮的样式来自 .link-card，改一处全站生效 -->
   <section class="section section--tight" aria-labelledby="group-search">
     <div class="wrap">
       <div class="group-head">
-        <h2 id="group-search">搜索引擎</h2>
-        <span class="group-count">8 个</span>
-        <a class="text-link" href="directory.html#group-search">查看全部</a>
+        <h2 id="group-search">Search</h2>
+        <span class="group-count">8 sites</span>
+        <a class="text-link" href="directory.html#group-search">View all</a>
       </div>
       <ul class="link-grid" role="list">
-        <li><a class="link-card" href="https://www.baidu.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#2932e1" aria-hidden="true">BD</span><span class="link-text"><span class="link-name">百度</span><span class="link-domain">baidu.com</span></span></a></li>
-        <li><a class="link-card" href="https://cn.bing.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#008373" aria-hidden="true">B</span><span class="link-text"><span class="link-name">必应</span><span class="link-domain">cn.bing.com</span></span></a></li>
+        <li><a class="link-card" href="https://www.baidu.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#2932e1" aria-hidden="true">BD</span><span class="link-text"><span class="link-name">Baidu</span><span class="link-domain">baidu.com</span></span></a></li>
+        <li><a class="link-card" href="https://cn.bing.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#008373" aria-hidden="true">B</span><span class="link-text"><span class="link-name">Bing</span><span class="link-domain">cn.bing.com</span></span></a></li>
         <li><a class="link-card" href="https://www.google.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#4285f4" aria-hidden="true">G</span><span class="link-text"><span class="link-name">Google</span><span class="link-domain">google.com</span></span></a></li>
-        <li><a class="link-card" href="https://quark.sm.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#6d4aff" aria-hidden="true">QK</span><span class="link-text"><span class="link-name">夸克</span><span class="link-domain">quark.sm.cn</span></span></a></li>
-        <li><a class="link-card" href="https://www.sogou.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#fb6022" aria-hidden="true">SG</span><span class="link-text"><span class="link-name">搜狗搜索</span><span class="link-domain">sogou.com</span></span></a></li>
+        <li><a class="link-card" href="https://quark.sm.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#6d4aff" aria-hidden="true">QK</span><span class="link-text"><span class="link-name">Quark</span><span class="link-domain">quark.sm.cn</span></span></a></li>
+        <li><a class="link-card" href="https://www.sogou.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#fb6022" aria-hidden="true">SG</span><span class="link-text"><span class="link-name">Sogou</span><span class="link-domain">sogou.com</span></span></a></li>
       </ul>
     </div>
   </section>
@@ -119,16 +134,16 @@
   <section class="section section--tight" aria-labelledby="group-video">
     <div class="wrap">
       <div class="group-head">
-        <h2 id="group-video">影视视频</h2>
-        <span class="group-count">8 个</span>
-        <a class="text-link" href="directory.html#group-video">查看全部</a>
+        <h2 id="group-video">Streaming</h2>
+        <span class="group-count">8 sites</span>
+        <a class="text-link" href="directory.html#group-video">View all</a>
       </div>
       <ul class="link-grid" role="list">
-        <li><a class="link-card" href="https://www.iqiyi.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#00be06" aria-hidden="true">IQ</span><span class="link-text"><span class="link-name">爱奇艺</span><span class="link-domain">iqiyi.com</span></span></a></li>
-        <li><a class="link-card" href="https://v.qq.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6022" aria-hidden="true">TX</span><span class="link-text"><span class="link-name">腾讯视频</span><span class="link-domain">v.qq.com</span></span></a></li>
-        <li><a class="link-card" href="https://www.youku.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#1f8dff" aria-hidden="true">YK</span><span class="link-text"><span class="link-name">优酷</span><span class="link-domain">youku.com</span></span></a></li>
-        <li><a class="link-card" href="https://www.bilibili.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#fb7299" aria-hidden="true">B</span><span class="link-text"><span class="link-name">哔哩哔哩</span><span class="link-domain">bilibili.com</span></span></a></li>
-        <li><a class="link-card" href="https://www.mgtv.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6f00" aria-hidden="true">MG</span><span class="link-text"><span class="link-name">芒果 TV</span><span class="link-domain">mgtv.com</span></span></a></li>
+        <li><a class="link-card" href="https://www.iqiyi.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#00be06" aria-hidden="true">IQ</span><span class="link-text"><span class="link-name">iQIYI</span><span class="link-domain">iqiyi.com</span></span></a></li>
+        <li><a class="link-card" href="https://v.qq.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6022" aria-hidden="true">TX</span><span class="link-text"><span class="link-name">Tencent Video</span><span class="link-domain">v.qq.com</span></span></a></li>
+        <li><a class="link-card" href="https://www.youku.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#1f8dff" aria-hidden="true">YK</span><span class="link-text"><span class="link-name">Youku</span><span class="link-domain">youku.com</span></span></a></li>
+        <li><a class="link-card" href="https://www.bilibili.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#fb7299" aria-hidden="true">B</span><span class="link-text"><span class="link-name">Bilibili</span><span class="link-domain">bilibili.com</span></span></a></li>
+        <li><a class="link-card" href="https://www.mgtv.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#ff6f00" aria-hidden="true">MG</span><span class="link-text"><span class="link-name">Mango TV</span><span class="link-domain">mgtv.com</span></span></a></li>
       </ul>
     </div>
   </section>
@@ -136,56 +151,57 @@
   <section class="section section--tight" aria-labelledby="group-ai">
     <div class="wrap">
       <div class="group-head">
-        <h2 id="group-ai">AI 工具</h2>
-        <span class="group-count">10 个</span>
-        <a class="text-link" href="directory.html#group-ai">查看全部</a>
+        <h2 id="group-ai">AI tools</h2>
+        <span class="group-count">10 sites</span>
+        <a class="text-link" href="directory.html#group-ai">View all</a>
       </div>
       <ul class="link-grid" role="list">
         <li><a class="link-card" href="https://www.deepseek.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#4c6ef5" aria-hidden="true">DS</span><span class="link-text"><span class="link-name">DeepSeek</span><span class="link-domain">deepseek.com</span></span></a></li>
-        <li><a class="link-card" href="https://www.doubao.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#f43f5e" aria-hidden="true">豆</span><span class="link-text"><span class="link-name">豆包</span><span class="link-domain">doubao.com</span></span></a></li>
+        <li><a class="link-card" href="https://www.doubao.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#f43f5e" aria-hidden="true">DB</span><span class="link-text"><span class="link-name">Doubao</span><span class="link-domain">doubao.com</span></span></a></li>
         <li><a class="link-card" href="https://kimi.moonshot.cn/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#6d4aff" aria-hidden="true">K</span><span class="link-text"><span class="link-name">Kimi</span><span class="link-domain">kimi.moonshot.cn</span></span></a></li>
         <li><a class="link-card" href="https://chatgpt.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#10a37f" aria-hidden="true">GPT</span><span class="link-text"><span class="link-name">ChatGPT</span><span class="link-domain">chatgpt.com</span></span></a></li>
-        <li><a class="link-card" href="https://tongyi.aliyun.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#615ced" aria-hidden="true">QW</span><span class="link-text"><span class="link-name">通义</span><span class="link-domain">tongyi.aliyun.com</span></span></a></li>
+        <li><a class="link-card" href="https://tongyi.aliyun.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#615ced" aria-hidden="true">QW</span><span class="link-text"><span class="link-name">Tongyi</span><span class="link-domain">tongyi.aliyun.com</span></span></a></li>
       </ul>
     </div>
   </section>
 
 </main>
 
+<!-- 页脚：品牌 + 页面链接 + 分类链接 + 版权（年份由 JS 自动填） -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="index.html">
           <img class="brand-mark" src="assets/favicon.svg" alt="" width="32" height="32">
-          <span class="brand-text">拾页导航<small>Shiye Nav</small></span>
+          <span class="brand-text">Shiye Nav<small>Daily start page</small></span>
         </a>
       </div>
       <div class="footer-col">
-        <h2>页面</h2>
+        <h2>Pages</h2>
         <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="directory.html">全部网址</a></li>
-          <li><a href="submit.html">推荐网址</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">All sites</a></li>
+          <li><a href="submit.html">Submit</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h2>分类</h2>
+        <h2>Categories</h2>
         <ul>
-          <li><a href="directory.html#group-search">搜索引擎</a></li>
-          <li><a href="directory.html#group-video">影视视频</a></li>
-          <li><a href="directory.html#group-ai">AI 工具</a></li>
+          <li><a href="directory.html#group-search">Search</a></li>
+          <li><a href="directory.html#group-video">Streaming</a></li>
+          <li><a href="directory.html#group-ai">AI tools</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span data-year>2026</span> 拾页导航 · 手写 HTML / CSS / JS</p>
-      <p>外部链接均指向官方网站。</p>
+      <p>© <span data-year>2026</span> Shiye Nav · Hand-written HTML / CSS / JS</p>
+      <p>External links go to official sites.</p>
     </div>
   </div>
 </footer>
 
-<button class="to-top" type="button" data-to-top aria-label="回到顶部">
+<button class="to-top" type="button" data-to-top aria-label="Back to top">
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M12 19V5M5 12l7-7 7 7"/>
   </svg>

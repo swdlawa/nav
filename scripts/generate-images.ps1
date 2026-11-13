@@ -14,10 +14,10 @@
 # ==========================================================================
 
 param(
-  [string]$SiteName = "拾页导航",
-  [string]$Tagline  = "常用网站，一页打开。",
+  [string]$SiteName = "Shiye Nav",
+  [string]$Tagline  = "Your daily sites, one page.",
   [string]$Kicker   = "SHIYE NAV  /  2026",
-  [string]$Cats     = "搜索引擎  ·  影视视频  ·  AI 工具",
+  [string]$Cats     = "SEARCH  ·  STREAMING  ·  AI TOOLS",
   [string]$SiteUrl  = "swdlawa.github.io/nav"
 )
 
@@ -237,7 +237,7 @@ Draw-Text $g $Cats $catsFont $mutedBrush 98 372
 
 # 粗体统计
 $statFont = New-Object System.Drawing.Font("Consolas", 26, [System.Drawing.FontStyle]::Bold)
-Draw-Text $g "26 SITES · 3 CATEGORIES" $statFont $rustBrush 96 470
+Draw-Text $g "26 SITES · 3 GROUPS" $statFont $rustBrush 96 470
 Draw-Text $g $SiteUrl $urlFont $mutedBrush 96 520
 
 # 右侧标志

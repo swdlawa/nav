@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>推荐网址 · 拾页导航</title>
-<meta name="description" content="推荐一个好用的网站给拾页导航：填名称、网址和一句理由，我会打开用一遍再决定收不收。">
+<title>Submit a site · Shiye Nav</title>
+<meta name="description" content="Suggest a useful site to Shiye Nav: name, URL and one reason. I will try it before adding it.">
 <link rel="canonical" href="https://swdlawa.github.io/nav/submit.html">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="拾页导航">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:title" content="推荐网址 · 拾页导航">
-<meta property="og:description" content="发现好站？填个表单，我打开用一遍再决定。">
+<meta property="og:site_name" content="Shiye Nav">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Submit a site · Shiye Nav">
+<meta property="og:description" content="Found a good site? Send it in — I will try it before adding it.">
 <meta property="og:url" content="https://swdlawa.github.io/nav/submit.html">
 <meta property="og:image" content="https://swdlawa.github.io/nav/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="拾页导航：把每天要用的网站，收进一页里。">
+<meta property="og:image:alt" content="Shiye Nav: your daily sites, one page.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="推荐网址 · 拾页导航">
-<meta name="twitter:description" content="发现好站？填个表单，我打开用一遍再决定。">
+<meta name="twitter:title" content="Submit a site · Shiye Nav">
+<meta name="twitter:description" content="Found a good site? Send it in — I will try it before adding it.">
 <meta name="twitter:image" content="https://swdlawa.github.io/nav/assets/og-image.png">
 
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -45,23 +45,23 @@
 <script src="js/main.js?v=15" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#main">跳到主要内容</a>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="index.html">
       <img class="brand-mark" src="assets/favicon.svg" alt="" width="32" height="32">
-      <span class="brand-text">拾页导航<small>Shiye Nav</small></span>
+      <span class="brand-text">Shiye Nav<small>Daily start page</small></span>
     </a>
-    <nav class="site-nav" id="site-nav" aria-label="主导航">
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="directory.html">全部网址</a></li>
-        <li><a href="submit.html" aria-current="page">推荐网址</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">All sites</a></li>
+        <li><a href="submit.html" aria-current="page">Submit</a></li>
       </ul>
     </nav>
     <div class="header-tools">
-      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="切换到深色模式">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4.2"/>
           <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/>
@@ -70,7 +70,7 @@
           <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2Z"/>
         </svg>
       </button>
-      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16"/>
         </svg>
@@ -83,43 +83,46 @@
 
   <div class="wrap">
     <div class="page-head">
-      <p class="eyebrow">推荐网址</p>
-      <h1>把你私藏的那个网站交出来</h1>
+      <p class="eyebrow">Submit a site</p>
+      <h1>Share a site you actually use</h1>
     </div>
 
     <div class="submit-grid submit-grid--single">
+      <!-- 表单不提交到后端：JS 校验通过后拼一封 mailto 邮件。
+       data-mailto 是收件人，改邮箱只需要改这一处 + 页脚。 -->
       <form class="form-card" data-submit-form data-mailto="x20250081@stu.biuh.edu.cn" novalidate>
         <div class="field">
-          <label for="name">网站名称</label>
-          <input id="name" name="name" type="text" placeholder="比如：Excalidraw" autocomplete="off" required aria-describedby="name-error">
+          <label for="name">Site name</label>
+          <input id="name" name="name" type="text" placeholder="e.g. Excalidraw" autocomplete="off" required aria-describedby="name-error">
           <p class="error-msg" id="name-error" role="alert"></p>
         </div>
 
         <div class="field">
-          <label for="url">网址 <span class="hint">（要带 https://）</span></label>
+          <label for="url">URL <span class="hint">(include https://)</span></label>
+          <!-- 网址校验：必须以 http:// 或 https:// 开头，否则提示错误 -->
           <input id="url" name="url" type="url" inputmode="url" placeholder="https://example.com" autocomplete="off" required aria-describedby="url-error">
           <p class="error-msg" id="url-error" role="alert"></p>
         </div>
 
         <div class="field">
-          <label for="category">放在哪个分类</label>
+          <label for="category">Category</label>
           <select id="category" name="category">
-            <option value="搜索引擎">搜索引擎</option>
-            <option value="影视视频">影视视频</option>
-            <option value="AI 工具">AI 工具</option>
-            <option value="其他 / 说不准">其他 / 说不准</option>
+            <option value="Search">Search</option>
+            <option value="Streaming">Streaming</option>
+            <option value="AI tools">AI tools</option>
+            <option value="Other / not sure">Other / not sure</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="reason">推荐理由 <span class="hint">（至少 8 个字）</span></label>
-          <textarea id="reason" name="reason" rows="5" placeholder="它解决了什么问题？你平时怎么用它？" required aria-describedby="reason-error"></textarea>
+          <label for="reason">Why it is useful <span class="hint">(at least 8 characters)</span></label>
+          <textarea id="reason" name="reason" rows="5" placeholder="What problem does it solve? How do you use it?" required aria-describedby="reason-error"></textarea>
           <p class="error-msg" id="reason-error" role="alert"></p>
         </div>
 
         <div class="form-actions">
-          <button class="btn btn--accent" type="submit">打开邮件发送</button>
-          <p class="form-status" data-form-status role="status" aria-live="polite">表单不经过服务器，只会在你本机拼好一封邮件。</p>
+          <button class="btn btn--accent" type="submit">Open mail app</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite">This form does not touch a server — it composes an email on your machine.</p>
         </div>
       </form>
     </div>
@@ -133,34 +136,34 @@
       <div class="footer-brand">
         <a class="brand" href="index.html">
           <img class="brand-mark" src="assets/favicon.svg" alt="" width="32" height="32">
-          <span class="brand-text">拾页导航<small>Shiye Nav</small></span>
+          <span class="brand-text">Shiye Nav<small>Daily start page</small></span>
         </a>
       </div>
       <div class="footer-col">
-        <h2>页面</h2>
+        <h2>Pages</h2>
         <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="directory.html">全部网址</a></li>
-          <li><a href="submit.html">推荐网址</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">All sites</a></li>
+          <li><a href="submit.html">Submit</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h2>分类</h2>
+        <h2>Categories</h2>
         <ul>
-          <li><a href="directory.html#group-search">搜索引擎</a></li>
-          <li><a href="directory.html#group-video">影视视频</a></li>
-          <li><a href="directory.html#group-ai">AI 工具</a></li>
+          <li><a href="directory.html#group-search">Search</a></li>
+          <li><a href="directory.html#group-video">Streaming</a></li>
+          <li><a href="directory.html#group-ai">AI tools</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span data-year>2026</span> 拾页导航 · 手写 HTML / CSS / JS</p>
-      <p>外部链接均指向各自的官方网站。</p>
+      <p>© <span data-year>2026</span> Shiye Nav · Hand-written HTML / CSS / JS</p>
+      <p>External links go to their official sites.</p>
     </div>
   </div>
 </footer>
 
-<button class="to-top" type="button" data-to-top aria-label="回到顶部">
+<button class="to-top" type="button" data-to-top aria-label="Back to top">
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M12 19V5M5 12l7-7 7 7"/>
   </svg>

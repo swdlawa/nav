@@ -1,8 +1,8 @@
 {
-  "name": "拾页导航",
-  "short_name": "拾页",
-  "description": "百度、必应、爱奇艺、腾讯视频、DeepSeek 等常用站点的官方入口。",
-  "lang": "zh-CN",
+  "name": "Shiye Nav",
+  "short_name": "Shiye Nav",
+  "description": "Official entry points for search engines, streaming sites and AI tools.",
+  "lang": "en",
   "dir": "ltr",
   "start_url": "./index.html",
   "scope": "./",
@@ -10,7 +10,10 @@
   "orientation": "portrait-primary",
   "background_color": "#f2f5ef",
   "theme_color": "#1e6b4f",
-  "categories": ["productivity", "utilities"],
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "assets/icon-192.png",
