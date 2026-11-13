@@ -105,25 +105,17 @@
       <li><a href="#group-ai">AI tools</a></li>
     </ul>
 
-    <!-- data-directory 圈定搜索范围：里面的每张卡片都会被 JS 过滤。
-     下面三个 <section data-group> 是三个分组，空组会被自动隐藏。 -->
+
     <div data-directory>
 
-      <!-- 分组容器：
-         data-group        JS 用来整组隐藏
-         data-group-count  组内“8 个”这个数字，会随搜索结果更新 -->
+
       <section class="group" data-group id="group-search" aria-labelledby="title-search">
         <div class="group-head">
           <h2 id="title-search">Search</h2>
           <span class="group-count" data-group-count>8 sites</span>
         </div>
         <ul class="link-grid" role="list">
-          <!-- 一张卡片 = 一个真实链接：
-                 data-site        标记“这是可被搜索的站点”
-                 data-name/tags   搜索索引（用户看不见，但输入“百度”或“搜索”都能命中）
-                 target=_blank    新标签打开
-                 rel=noopener     防止新页面操控本页（安全）
-                 按钮里只放站名，图标/域名/介绍都去掉了，保持一眼可扫 -->
+
           <li><a class="link-card" data-site data-name="Baidu" data-tags="search encyclopedia tieba" href="https://www.baidu.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#2932e1" aria-hidden="true">BD</span><span class="link-text"><span class="link-name">Baidu</span><span class="link-domain">baidu.com</span></span></a></li>
           <li><a class="link-card" data-site data-name="Bing" data-tags="microsoft english images" href="https://cn.bing.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#008373" aria-hidden="true">B</span><span class="link-text"><span class="link-name">Bing</span><span class="link-domain">cn.bing.com</span></span></a></li>
           <li><a class="link-card" data-site data-name="Google" data-tags="search english tech" href="https://www.google.com/" target="_blank" rel="noopener"><span class="link-icon" style="--mark:#4285f4" aria-hidden="true">G</span><span class="link-text"><span class="link-name">Google</span><span class="link-domain">google.com</span></span></a></li>

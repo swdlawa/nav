@@ -1,19 +1,12 @@
-/* ==========================================================================
-   拾页导航 — 交互脚本
-   原生 JS，无依赖。所有功能都是渐进增强：关掉 JS 页面仍可浏览。
-   ========================================================================== */
 (function () {
   "use strict";
 
   var doc = document;
   var root = doc.documentElement;
 
-  /* --- 主题 ------------------------------------------------------------- */
   var themeToggle = doc.querySelector("[data-theme-toggle]");
   var themeMeta = doc.querySelector('meta[name="theme-color"]');
 
-  /* 应用主题：改 <html data-theme>、更新按钮状态、同步浏览器地址栏颜色。
-     persist=true 时写入 localStorage，下次打开还记得。 */
   function applyTheme(theme, persist) {
     root.setAttribute("data-theme", theme);
     if (themeToggle) {
@@ -30,7 +23,7 @@
       try {
         localStorage.setItem("theme", theme);
       } catch (err) {
-        /* 隐私模式忽略 */
+
       }
     }
   }
@@ -50,13 +43,12 @@
       try {
         saved = localStorage.getItem("theme");
       } catch (err) {
-        /* 忽略 */
+
       }
       if (!saved) applyTheme(event.matches ? "dark" : "light", false);
     });
   }
 
-  /* --- 移动端菜单 -------------------------------------------------------- */
   var navToggle = doc.querySelector("[data-nav-toggle]");
   var siteNav = doc.getElementById("site-nav");
 
@@ -92,7 +84,6 @@
     });
   }
 
-  /* --- 滚动状态与回到顶部 ------------------------------------------------ */
   var header = doc.querySelector(".site-header");
   var toTop = doc.querySelector("[data-to-top]");
 
@@ -111,7 +102,6 @@
     });
   }
 
-  /* --- 网址目录：搜索（按分组过滤） ------------------------------------- */
   var directory = doc.querySelector("[data-directory]");
 
   if (directory) {
@@ -128,8 +118,6 @@
     var emptyTerm = doc.querySelector("[data-empty-term]");
     var state = { q: "" };
 
-    /* 判断一张卡片是否命中关键词：站名 + 标签 + 可见文本，全部转小写后做包含匹配。
-       这是“搜索”的核心，只读 DOM，不发请求。 */
     function matches(card) {
       if (!state.q) return true;
       var haystack = (
@@ -142,12 +130,6 @@
       return haystack.indexOf(state.q) !== -1;
     }
 
-    /* 真正执行过滤：
-       1. 逐张卡片设置 hidden；
-       2. 某组一张都不剩时，整组隐藏；
-       3. 更新“显示 X / 26”和空状态；
-       4. 把关键词写进地址栏 ?q=，方便分享。
-       pushUrl=false 用于页面刚打开时，避免多余的历史记录。 */
     function apply(pushUrl) {
       var shown = 0;
 
@@ -184,7 +166,6 @@
       }
     }
 
-    /* 页面加载时读取 ?q=：从分享链接进入也能还原搜索结果。 */
     function fromUrl() {
       var params = new URLSearchParams(window.location.search);
       var q = params.get("q") || "";
@@ -224,7 +205,6 @@
     fromUrl();
   }
 
-  /* --- 推荐网址表单 ------------------------------------------------------ */
   var form = doc.querySelector("[data-submit-form]");
 
   if (form) {
@@ -298,8 +278,7 @@
         "\nCategory: " + form.elements.category.value +
         "\nWhy: " + reason.value.trim()
       );
-      /* 校验全部通过：拼一封邮件交给系统邮件客户端。
-         静态站没有后端，这是“提交”最轻的做法。 */
+
       window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
 
       if (statusEl) {
@@ -318,7 +297,6 @@
     );
   }
 
-  /* --- 滚动出现 ---------------------------------------------------------- */
   var reveals = Array.prototype.slice.call(doc.querySelectorAll(".reveal"));
 
   if ("IntersectionObserver" in window && reveals.length) {
@@ -342,7 +320,6 @@
     });
   }
 
-  /* --- 年份 -------------------------------------------------------------- */
   Array.prototype.forEach.call(doc.querySelectorAll("[data-year]"), function (el) {
     el.textContent = String(new Date().getFullYear());
   });

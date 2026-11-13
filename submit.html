@@ -88,8 +88,7 @@
     </div>
 
     <div class="submit-grid submit-grid--single">
-      <!-- 表单不提交到后端：JS 校验通过后拼一封 mailto 邮件。
-       data-mailto 是收件人，改邮箱只需要改这一处 + 页脚。 -->
+
       <form class="form-card" data-submit-form data-mailto="x20250081@stu.biuh.edu.cn" novalidate>
         <div class="field">
           <label for="name">Site name</label>
@@ -99,7 +98,7 @@
 
         <div class="field">
           <label for="url">URL <span class="hint">(include https://)</span></label>
-          <!-- 网址校验：必须以 http:// 或 https:// 开头，否则提示错误 -->
+
           <input id="url" name="url" type="url" inputmode="url" placeholder="https://example.com" autocomplete="off" required aria-describedby="url-error">
           <p class="error-msg" id="url-error" role="alert"></p>
         </div>

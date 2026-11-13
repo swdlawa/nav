@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-<!-- ==========================================================================
-     页面元信息（不显示在页面上，给浏览器 / 搜索引擎 / 社交平台看）
-     - charset / viewport：编码与手机缩放
-     - description / canonical：搜索摘要与正式地址
-     - og:* / twitter:*：分享到微信、X 时的标题与图片
-     - icon / manifest：favicon 与“添加到主屏幕”
-     - styles.css?v=15：v=15 是缓存版本号，改样式后 +1 可强制浏览器取新文件
-     ========================================================================== -->
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shiye Nav — Your daily sites, one page</title>
@@ -55,8 +48,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- 全站页头：品牌 → 主导航 → 主题切换 / 移动端菜单
-     导航用 aria-current="page" 标出当前页，读屏软件能读出来 -->
+
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="index.html">
@@ -89,11 +81,10 @@
   </div>
 </header>
 
-<!-- ==================== 主内容开始 ==================== -->
+
 <main id="main">
 
-  <!-- 首屏：搜索框 + 统计。标题与说明文字已按需求移除，页面直接从搜索开始。
-       form 的 action 指向 directory.html：即使 JS 失效，提交也能带 ?q= 跳过去 -->
+
   <div class="wrap hero hero--compact">
     <form class="search-form" action="directory.html" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -112,8 +103,7 @@
     </p>
   </div>
 
-  <!-- 三组常用入口：每组只展示 5 个，其余在“查看全部”里。
-       每个按钮的样式来自 .link-card，改一处全站生效 -->
+
   <section class="section section--tight" aria-labelledby="group-search">
     <div class="wrap">
       <div class="group-head">
@@ -167,7 +157,7 @@
 
 </main>
 
-<!-- 页脚：品牌 + 页面链接 + 分类链接 + 版权（年份由 JS 自动填） -->
+
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">

@@ -1,16 +1,3 @@
-/* ==========================================================================
-   拾页导航 — styles
-   Plain CSS, no build step. Sections:
-   1 tokens · 2 reset · 3 layout · 4 header · 5 hero · 6 cards
-   7 sections · 8 directory · 9 about/submit · 10 footer · 11 motion
-   12 responsive · 13 print
-   ========================================================================== */
-
-/* 1. Tokens ---------------------------------------------------------------- */
-/* ---------- 设计变量：改这里就能换全站配色 ----------
-   --bg 是页面底色，--ink 是正文颜色，--accent 是强调色。
-   深色模式不是重写样式，而是把这一组变量换掉（见下面的 [data-theme="dark"]）。
-   所有组件都用 var(--xxx) 取值，所以一处改动全站生效。 */
 :root {
   --bg: #f2f5ef;
   --surface: #fffef9;
@@ -42,7 +29,6 @@
   color-scheme: light;
 }
 
-/* 深色主题：只覆盖变量值。切换由 <html data-theme="dark"> 触发。 */
 [data-theme="dark"] {
   --bg: #0f1612;
   --surface: #161f1a;
@@ -65,7 +51,6 @@
   color-scheme: dark;
 }
 
-/* 2. Reset ----------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -166,8 +151,6 @@ ol[role="list"] {
   color: var(--bg);
 }
 
-/* 3. Layout ---------------------------------------------------------------- */
-/* 统一的内容容器：小屏左右留白，大屏最宽 1280px 并居中。 */
 .wrap {
   width: min(100% - 2.6rem, var(--wrap));
   margin-inline: auto;
@@ -270,7 +253,6 @@ main {
   transform: translateX(3px);
 }
 
-/* 4. Header ---------------------------------------------------------------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -406,7 +388,6 @@ main {
   display: none;
 }
 
-/* 5. Hero ------------------------------------------------------------------ */
 .hero {
   padding-block: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 3rem);
 }
@@ -525,7 +506,6 @@ main {
   flex: none;
 }
 
-/* 6. Link cards (compact) ------------------------------------------------ */
 .hero--compact {
   padding-block: clamp(2rem, 4vw, 3rem) 1rem;
 }
@@ -679,7 +659,6 @@ main {
   border-color: var(--accent);
 }
 
-/* 7. Sections -------------------------------------------------------------- */
 .section {
   padding-block: clamp(2.4rem, 5vw, 4rem);
 }
@@ -890,7 +869,6 @@ main {
   --btn-fg: #0d1711;
 }
 
-/* 8. Directory ------------------------------------------------------------- */
 .page-head {
   padding-block: clamp(2.2rem, 5vw, 3.4rem) clamp(1.4rem, 3vw, 2rem);
   border-bottom: 1px solid var(--line);
@@ -1035,7 +1013,6 @@ main {
   font-size: 1rem;
 }
 
-/* 9. About / submit -------------------------------------------------------- */
 .prose {
   max-width: 72ch;
   padding-block: clamp(2rem, 4vw, 3rem);
@@ -1238,7 +1215,6 @@ main {
   color: #b03427;
 }
 
-/* 10. Footer --------------------------------------------------------------- */
 .site-footer {
   margin-top: auto;
   padding-block: 2.6rem 1.8rem;
@@ -1312,7 +1288,6 @@ main {
   color: color-mix(in srgb, var(--bg) 55%, transparent);
 }
 
-/* 11. Motion --------------------------------------------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(12px);
@@ -1375,8 +1350,6 @@ main {
   }
 }
 
-
-/* 6b. Black jump buttons (animated gradient edge) ------------------------- */
 @property --nav-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -1411,10 +1384,6 @@ main {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* rotating gradient edge: masked to a 2px ring */
-
-/* soft glow behind the button */
-
 .link-card:hover,
 .link-card:focus-visible {
   color: #fff;
@@ -1423,9 +1392,6 @@ main {
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     0 16px 34px -20px rgba(0, 0, 0, 0.95);
 }
-
-
-
 
 .link-card:active {
   transform: translateY(0) scale(0.985);
@@ -1453,7 +1419,6 @@ main {
 @media (prefers-reduced-motion: reduce) {
 }
 
-/* 12. Responsive ----------------------------------------------------------- */
 @media (max-width: 960px) {
   .section-head,
   .submit-grid,
@@ -1588,7 +1553,6 @@ main {
   }
 }
 
-/* 13. Print ---------------------------------------------------------------- */
 @media print {
   .site-header,
   .to-top,
@@ -1604,9 +1568,8 @@ main {
   }
 }
 
-/* 6c. Fixed-size pure-black jump buttons -------------------------------- */
 .link-grid {
-  /* 固定 240px 宽：容器 1280 时一行正好 5 个（5×240 + 4 个间距） */
+
   grid-template-columns: repeat(auto-fill, 240px);
   justify-content: start;
   gap: 1.1rem;
@@ -1621,8 +1584,6 @@ main {
   background: #000;
   box-shadow: 0 14px 28px -22px rgba(0, 0, 0, 0.9);
 }
-
-
 
 .link-card .link-icon {
   width: 42px;
@@ -1653,7 +1614,7 @@ main {
     height: 120px;
   }
 }
-/* 6d. Five per row, continuous edge animation --------------------------- */
+
 :root {
   --wrap: 1280px;
 }
@@ -1664,7 +1625,6 @@ main {
   gap: 1.1rem;
 }
 
-/* 6e. Final simplification: icon + name only, centred -------------------- */
 .link-card .link-domain {
   display: none;
 }
@@ -1681,7 +1641,7 @@ main {
 .link-card {
   gap: 0.8rem;
 }
-/* 6f. Name-only black buttons ------------------------------------------- */
+
 .link-card {
   justify-content: center;
   gap: 0;
@@ -1703,7 +1663,7 @@ main {
   font-weight: 600;
   letter-spacing: 0.01em;
 }
-/* 6g. Crisp gradient border — no mask, no blur, no glow --------------- */
+
 .link-card {
   border: 2px solid transparent;
   background-color: #000;
@@ -1741,7 +1701,6 @@ main {
   background-clip: padding-box, border-box;
 }
 
-
 .link-card:hover {
   animation-duration: 3s;
 }
@@ -1756,11 +1715,6 @@ main {
   }
 }
 
-/* 6h. 最终边框：2px 纯黑。
-   前面 6b–6g 是迭代过程中留下的历史规则（渐变边、光晕、动画），
-   这里用同样的选择器覆盖它们；最终生效的是本段。
-   想恢复彩色描边，只需要改这里的 border 颜色和 background。 */
-/* 6h. Solid black border ------------------------------------------------- */
 .link-card {
   border: 2px solid #000;
   background-color: #000;
@@ -1782,20 +1736,20 @@ main {
 .link-card:focus-visible {
   animation: none;
 }
-/* 6i. No shadow, no halo at all ----------------------------------------- */
+
 .link-card,
 [data-theme="dark"] .link-card {
   box-shadow: none;
   filter: none;
   text-shadow: none;
 }
-/* 9b. Single-column submit form ----------------------------------------- */
+
 .submit-grid--single {
   grid-template-columns: minmax(0, 1fr);
   max-width: 620px;
   margin-inline: auto;
 }
-/* 8b. Page heading without an eyebrow ------------------------------- */
+
 .page-head h1:first-child {
   margin-top: 0;
 }
